@@ -117,7 +117,9 @@ namespace Jellyfin.Plugin.LDAP_Auth
                     while (ldapUsers.HasMore() && !foundUser)
                     {
                         var currentUser = ldapUsers.Next();
-                        if (string.Equals(ldapUser.Dn, currentUser.Dn, StringComparison.Ordinal))
+                        var dn = currentUser.Dn;
+                        _logger.LogInfo("Admin checking: {Dn}", dn);
+                        if (string.Equals(ldapUser.Dn, dn, StringComparison.Ordinal))
                         {
                             ldapIsAdmin = true;
                             foundUser = true;
