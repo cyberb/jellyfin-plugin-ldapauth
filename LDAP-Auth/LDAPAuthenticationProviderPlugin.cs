@@ -117,19 +117,18 @@ namespace Jellyfin.Plugin.LDAP_Auth
 
                     if (EnableAdminFilterMemberUid) {
                         ldapIsAdmin = ldapUsers.HasMore();
-                        return;
-                    }
-
-                    var foundUser = false;
-                    while (ldapUsers.HasMore() && !foundUser)
-                    {
-                        var currentUser = ldapUsers.Next();
-                        var dn = currentUser.Dn;
-                        _logger.LogWarning("Admin checking: {Dn}", dn);
-                        if (string.Equals(ldapUser.Dn, dn, StringComparison.Ordinal))
+                    } else {
+                        var foundUser = false;
+                        while (ldapUsers.HasMore() && !foundUser)
                         {
-                            ldapIsAdmin = true;
-                            foundUser = true;
+                            var currentUser = ldapUsers.Next();
+                            var dn = currentUser.Dn;
+                            _logger.LogWarning("Admin checking: {Dn}", dn);
+                            if (string.Equals(ldapUser.Dn, dn, StringComparison.Ordinal))
+                            {
+                                ldapIsAdmin = true;
+                                foundUser = true;
+                            }
                         }
                     }
                 }
