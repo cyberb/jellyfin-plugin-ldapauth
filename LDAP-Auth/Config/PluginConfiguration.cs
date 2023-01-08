@@ -95,7 +95,7 @@ namespace Jellyfin.Plugin.LDAP_Auth.Config
         /// <summary>
         /// Gets or sets a value indicating whether to enable admin filter based on memberUid.
         /// </summary>
-        public string EnableLdapAdminFilterMemberUid { get; set; }
+        public bool EnableLdapAdminFilterMemberUid { get; set; }
 
         /// <summary>
         /// Gets or sets the ldap search attributes.
