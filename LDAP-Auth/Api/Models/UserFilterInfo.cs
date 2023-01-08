@@ -20,7 +20,7 @@ namespace Jellyfin.Plugin.LDAP_Auth.Api.Models
         public string LdapAdminFilter { get; set; }
 
         /// <summary>
-        /// Gets or sets the ldap admin search filter.
+        /// Gets or sets a value indicating whether ldap admin search filter should use 'memberUid'.
         /// </summary>
         public bool EnableLdapAdminFilterMemberUid { get; set; }
     }
