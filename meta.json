@@ -1,0 +1,13 @@
+{
+  "category": "Authentication",
+  "changelog": "### New features and improvements ###\n- Feature: LDAP Password Change with Toggle (#115) @mstrhakr\n\n### Bug Fixes ###\n- Fix PasswordResetUrl value in config page script (#117) @robobenklein\n\n### CI & build changes ###\n- fix: meta ci workflows (#122) @h1dden-da3m0n",
+  "description": "Authenticate your Jellyfin users against an LDAP database, and optionally create users who do not yet exist automatically.\n\nAllows the administrator to customize most aspects of the LDAP authentication process, including customizable search attributes, username attribute, and a search filter for administrative users (set on user creation). The user, via the \"Manual Login\" process, can enter any valid attribute value, which will be mapped back to the specified username attribute automatically as well.\n",
+  "guid": "958aad66-3784-4d2a-b89a-a7b6fab6e25c",
+  "imageUrl": "https://repo.jellyfin.org/releases/plugin/images/jellyfin-plugin-ldapauth.png",
+  "name": "LDAP Authentication",
+  "overview": "Authenticate users against an LDAP database",
+  "owner": "jellyfin",
+  "targetAbi": "10.8.0.0",
+  "timestamp": "2022-06-16T22:46:41Z",
+  "version": "16.0.0.0"
+}
