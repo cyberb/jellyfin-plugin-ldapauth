@@ -43,7 +43,7 @@ namespace Jellyfin.Plugin.LDAP_Auth
 
         private string AdminFilter => LdapPlugin.Instance.Configuration.LdapAdminFilter;
 
-        private string EnableAdminFilterMemberUid => LdapPlugin.Instance.Configuration.EnableLdapAdminFilterMemberUid;
+        private bool EnableAdminFilterMemberUid => LdapPlugin.Instance.Configuration.EnableLdapAdminFilterMemberUid;
 
         /// <summary>
         /// Gets plugin name.
