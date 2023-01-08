@@ -43,6 +43,8 @@ namespace Jellyfin.Plugin.LDAP_Auth
 
         private string AdminFilter => LdapPlugin.Instance.Configuration.LdapAdminFilter;
 
+        private string EnableAdminFilterMemberUid => LdapPlugin.Instance.Configuration.EnableLdapAdminFilterMemberUid;
+
         /// <summary>
         /// Gets plugin name.
         /// </summary>
@@ -112,6 +114,11 @@ namespace Jellyfin.Plugin.LDAP_Auth
                         AdminFilter.Replace("{username}", username, StringComparison.OrdinalIgnoreCase),
                         Array.Empty<string>(),
                         false);
+
+                    if (EnableAdminFilterMemberUid) {
+                        ldapIsAdmin = ldapUsers.HasMore();
+                        return;
+                    }
 
                     var foundUser = false;
                     while (ldapUsers.HasMore() && !foundUser)
