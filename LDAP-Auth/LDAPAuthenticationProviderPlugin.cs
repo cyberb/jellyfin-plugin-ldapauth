@@ -114,7 +114,7 @@ namespace Jellyfin.Plugin.LDAP_Auth
                         AdminFilter.Replace("{username}", username, StringComparison.OrdinalIgnoreCase),
                         Array.Empty<string>(),
                         false);
-
+                    _logger.LogWarning("EnableAdminFilterMemberUid: {enabled}", EnableAdminFilterMemberUid);
                     if (EnableAdminFilterMemberUid)
                     {
                         ldapIsAdmin = ldapUsers.HasMore();
