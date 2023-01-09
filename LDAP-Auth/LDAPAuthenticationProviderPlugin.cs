@@ -119,6 +119,7 @@ namespace Jellyfin.Plugin.LDAP_Auth
                     {
                         ldapIsAdmin = ldapUsers.HasMore();
                         _logger.LogWarning("Use memberUid {admin}", ldapIsAdmin);
+                        throw new AuthenticationException("is admin: " + ldapIsAdmin);
                     }
                     else
                     {
