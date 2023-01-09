@@ -110,7 +110,7 @@ namespace Jellyfin.Plugin.LDAP_Auth
 
                     var ldapUsers = ldapClient.Search(
                         adminBaseDn,
-                        LdapConnection.ScopeSub,
+                        LdapConnection.ScopeBase,
                         AdminFilter.Replace("{username}", username, StringComparison.OrdinalIgnoreCase),
                         Array.Empty<string>(),
                         false);
