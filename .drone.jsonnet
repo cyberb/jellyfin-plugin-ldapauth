@@ -11,8 +11,9 @@
         name: "build",
         image: "mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim",
         commands: [
-            "dotnet publish -c Release -o LDAP-Auth",
-            "tar czf LDAP-Auth.tar.gz LDAP-Auth"
+            "dotnet publish -c Release -o out/LDAP-Auth",
+            "cp meta.json out/LDAP-Auth"
+            "tar czf LDAP-Auth.tar.gz -C out LDAP-Auth"
         ],
         volumes: [
             {
