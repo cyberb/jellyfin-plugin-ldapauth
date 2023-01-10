@@ -31,7 +31,10 @@
                 files: "LDAP-Auth.tar.gz",
                 overwrite: true,
                 file_exists: "overwrite"
-            }
+            },
+            when: {
+                event: [ "tag" ]
+            },
         }
 ],
     volumes: [
