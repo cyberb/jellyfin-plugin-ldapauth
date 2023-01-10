@@ -4,7 +4,7 @@
     name: "amd64",
     platform: {
         os: "linux",
-        arch: "amd54"
+        arch: "amd64"
     },
     steps: [
     {
