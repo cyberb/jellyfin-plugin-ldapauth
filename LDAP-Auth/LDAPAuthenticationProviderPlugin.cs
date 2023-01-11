@@ -122,7 +122,18 @@ namespace Jellyfin.Plugin.LDAP_Auth
                     }
                     else
                     {
-                        throw new AuthenticationException("not enabled");
+                        var foundUser = false;
+                        while (ldapUsers.HasMore() && !foundUser)
+                        {
+                            var currentUser = ldapUsers.Next();
+                            var dn = currentUser.Dn;
+                            _logger.LogWarning("Admin checking: {Dn}", dn);
+                            if (string.Equals(ldapUser.Dn, dn, StringComparison.Ordinal))
+                            {
+                                ldapIsAdmin = true;
+                                foundUser = true;
+                            }
+                        }
                     }
                 }
                 catch (LdapException e)
