@@ -69,7 +69,6 @@ namespace Jellyfin.Plugin.LDAP_Auth
             var ldapUser = LocateLdapUser(username);
             var ldapUsername = GetAttribute(ldapUser, UsernameAttr)?.StringValue;
             _logger.LogDebug("Setting username: {LdapUsername}", ldapUsername);
-            _logger.LogWarning("EnableAdminFilterMemberUid: {enabled}", EnableAdminFilterMemberUid);
             try
             {
                 user = userManager.GetUserByName(ldapUsername);
@@ -118,7 +117,6 @@ namespace Jellyfin.Plugin.LDAP_Auth
                     if (EnableAdminFilterMemberUid)
                     {
                         ldapIsAdmin = ldapUsers.HasMore();
-                        _logger.LogWarning("Use memberUid {admin}", ldapIsAdmin);
                     }
                     else
                     {
